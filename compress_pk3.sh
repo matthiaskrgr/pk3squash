@@ -9,7 +9,7 @@ echo "Converting"
 for file in `find . | grep "\.tga"`; do # in theory we could make this parallel
 	convert ${file} "${file%.tga}.png" # tga -> png
 	$FLIF -e "${file%.tga}.png" "${file%.tga}.flif" # png -> flif
-	rm -f $file # rm tga
+	rm -f ${file} # rm tga
 	rm -f ${file%.tga}.png # rm png
 done
 

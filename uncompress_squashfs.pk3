@@ -11,7 +11,7 @@ echo "Converting"
 for file in `find . | grep "\.flif"`; do # in theory we could make this parallel
 	$FLIF -e ${file} "${file%.flif}.png" # flif -> png
 	convert "${file%.flif}.png" "${file%.flif}.tga" # png -> tga
-	rm -f $file # rm flif
+	rm -f ${file} # rm flif
 	rm -f ${file%.flif}.png # rm png
 done
 
